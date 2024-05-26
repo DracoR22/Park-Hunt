@@ -5,13 +5,18 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"  --ignore-path .gitignore",
+    "format:check": "pnpm format --check",
+    "format:write": "pnpm format --write",
+    "validate": "pnpm format:write && pnpm lint",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "prettier": "^3.2.5",
-    "turbo": "latest"
+    "turbo": "latest",
+    "husky": "^8.0.0"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
