@@ -6,19 +6,15 @@ export const checkRowLevelPermission = (
   requestedUid?: string | string[],
   roles: Role[] = ['admin'],
 ) => {
-  // if (!requestedUid) return false
+  if (!requestedUid) return false
 
-  // if (user.roles?.some((role) => roles.includes(role))) {
-  //   return true
-  // }
+  if (user.roles?.some((role) => roles.includes(role))) {
+    return true
+  }
 
-  // const uids =
-  //   typeof requestedUid === 'string'
-  //     ? [requestedUid]
-  //     : requestedUid.filter(Boolean)
+  const uids = typeof requestedUid === 'string' ? [requestedUid] : requestedUid.filter(Boolean)
 
-  // if (!uids.includes(user.uid)) {
-  //   throw new ForbiddenException()
-  // }
-  return
+  if (!uids.includes(user.uid)) {
+    throw new ForbiddenException()
+  }
 }

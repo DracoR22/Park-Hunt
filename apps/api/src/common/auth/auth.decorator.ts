@@ -11,3 +11,13 @@ export const GetUser = createParamDecorator((data, ctx: ExecutionContext) => {
   const context = GqlExecutionContext.create(ctx)
   return context.getContext().req.user
 })
+
+export const GetUserRest = createParamDecorator((data, ctx: ExecutionContext) => {
+  const request: Express.Request = ctx.switchToHttp().getRequest()
+  if (data) {
+    //@ts-ignore
+    return request.user[data]
+  }
+  //@ts-ignore
+  return request.user
+})
