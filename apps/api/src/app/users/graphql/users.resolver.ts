@@ -2,7 +2,12 @@ import { Resolver, Query, Mutation, Args } from '@nestjs/graphql'
 import { UsersService } from './users.service'
 import { User } from './entity/user.entity'
 import { FindManyUserArgs, FindUniqueUserArgs } from './dtos/find.args'
-import { RegisterWithCredentialsInput, RegisterWithProviderInput } from './dtos/create-user.input'
+import {
+  LoginInput,
+  LoginOutput,
+  RegisterWithCredentialsInput,
+  RegisterWithProviderInput,
+} from './dtos/create-user.input'
 import { UpdateUserInput } from './dtos/update-user.input'
 import { checkRowLevelPermission } from 'src/common/auth/util'
 import { GetUserType } from 'src/common/types'
@@ -24,6 +29,11 @@ export class UsersResolver {
   @Mutation(() => User)
   async registerWithProvider(@Args('registerWithProviderInput') args: RegisterWithProviderInput) {
     return this.usersService.registerWithProvider(args)
+  }
+
+  @Mutation(() => LoginOutput)
+  async login(@Args('loginInput') args: LoginInput) {
+    return this.usersService.login(args)
   }
 
   @Query(() => [User], { name: 'users' })
