@@ -1,6 +1,9 @@
-import { InputType, PartialType } from '@nestjs/graphql'
+import { Field, InputType, PartialType } from '@nestjs/graphql'
 import { Prisma } from '@prisma/client'
 import { DateTimeFilter, RestrictProperties, StringFilter } from 'src/common/dtos/common.input'
+import { CustomerRelationFilter } from 'src/app/customers/graphql/dtos/where.args'
+import { ManagerRelationFilter } from 'src/app/managers/graphql/dtos/where.args'
+import { ValetRelationFilter } from 'src/app/valets/graphql/dtos/where.args'
 
 @InputType()
 export class UserWhereUniqueInput {
@@ -15,13 +18,13 @@ export class UserWhereInputStrict
       Omit<Prisma.UserWhereInput, 'Credentials' | 'AuthProvider' | 'Admin' | 'image'>
     >
 {
+  Customer: CustomerRelationFilter
+  Manager: ManagerRelationFilter
+  Valet: ValetRelationFilter
   uid: StringFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
   name: StringFilter
-
-  // Todo: Add the below field decorator only to the $Enums types.
-  // @Field(() => $Enums.x)
 
   AND: UserWhereInput[]
   OR: UserWhereInput[]
