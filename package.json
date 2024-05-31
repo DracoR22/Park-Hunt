@@ -1,5 +1,5 @@
 {
-  "name": "park-hunt",
+  "name": "parkhunt",
   "private": true,
   "scripts": {
     "build": "turbo build",
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@parkhunt/typescript-config": "workspace:*",
     "husky": "^8.0.0",
     "prettier": "^3.2.5",
     "turbo": "latest"

@@ -1,0 +1,23 @@
+mutation RegisterWithCredentials(
+  $registerWithCredentialsInput: RegisterWithCredentialsInput!
+) {
+  registerWithCredentials(
+     registerWithCredentialsInput: $registerWithCredentialsInput
+  ) {
+    updatedAt
+    uid
+    name
+    image
+    createdAt
+  }
+}
+
+query Users {
+  users {
+    createdAt
+    image
+    name
+    uid
+    updatedAt
+  }
+}
