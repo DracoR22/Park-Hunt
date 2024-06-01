@@ -1,6 +1,6 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql'
 import { UsersService } from './users.service'
-import { User } from './entity/user.entity'
+import { AuthProvider, User } from './entity/user.entity'
 import { FindManyUserArgs, FindUniqueUserArgs } from './dtos/find.args'
 import {
   LoginInput,
@@ -50,6 +50,11 @@ export class UsersResolver {
   @Query(() => User, { name: 'user' })
   findOne(@Args() args: FindUniqueUserArgs) {
     return this.usersService.findOne(args)
+  }
+
+  @Query(() => AuthProvider, { name: 'getAuthProvider', nullable: true })
+  getAuthProvider(@Args('uid') uid: string) {
+    return this.prisma.authProvider.findUnique({ where: { uid } })
   }
 
   @AllowAuthenticated()

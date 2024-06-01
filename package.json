@@ -14,7 +14,6 @@
     "cleanBuild": "sh ./scripts/clean-package.sh"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
     "@parkhunt/typescript-config": "workspace:*",
     "husky": "^8.0.0",
     "prettier": "^3.2.5",

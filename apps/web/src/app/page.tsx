@@ -1,11 +1,22 @@
 'use client'
 
-import { allUsers } from '@parkhunt/network'
+import { allUsersQuery } from '@parkhunt/network'
+import { useEffect, useState } from 'react'
 
 const HomePage = () => {
-  const users = allUsers()
+  const [users, setUsers] = useState<any>(null)
 
-  return <div>{JSON.stringify(users.data)}</div>
+  useEffect(() => {
+    const getUser = async () => {
+      const usersData = await allUsersQuery()
+
+      setUsers(usersData)
+    }
+
+    getUser()
+  }, [])
+
+  return <div>{users && users.data?.users.map((u: any) => <div key={u.uid}>user: {u.name}</div>)}</div>
 }
 
 export default HomePage
