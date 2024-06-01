@@ -4,7 +4,7 @@ const inputDocumentsPattern = '**/*.graphql'
 const plugins = ['typescript', 'typescript-operations', 'named-operations-object', 'typed-document-node']
 
 const config: CodegenConfig = {
-  // watch: true,
+  watch: true,
   overwrite: true,
   schema: '../../apps/api/src/schema.gql',
   generates: {

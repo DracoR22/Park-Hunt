@@ -1,5 +1,5 @@
 {
-  "extends": "@parkhunt/typescript-config/react-library.json",
+  "extends": "@parkhunt/typescript-config/nextjs.json",
   "compilerOptions": {
     "outDir": "dist",
   },
