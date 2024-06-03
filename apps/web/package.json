@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@parkhunt/network": "workspace:^",
-    "@parkhunt/ui": "workspace:^",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "react": "^18",
