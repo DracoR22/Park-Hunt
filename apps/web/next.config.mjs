@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@parkhunt/network']
+  transpilePackages: ['@parkhunt/network', '@parkhunt/ui']
 };
 
 export default nextConfig;
