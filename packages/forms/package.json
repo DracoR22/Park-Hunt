@@ -1,0 +1,26 @@
+{
+  "name": "@parkhunt/forms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parkhunt/tsconfig": "workspace:^",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.4.2",
+    "react-hook-form": "^7.51.5",
+    "zod": "^3.23.8"
+  }
+}

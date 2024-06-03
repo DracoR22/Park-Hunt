@@ -2,7 +2,7 @@
 
 import { allUsersQuery } from '@parkhunt/network'
 import { useEffect, useState } from 'react'
-import { MyButtonComponent } from '@parkhunt/ui'
+import { BrandIcon } from '@parkhunt/ui'
 
 const HomePage = () => {
   const [users, setUsers] = useState<any>(null)
@@ -19,10 +19,9 @@ const HomePage = () => {
 
   return (
     <div className="bg-primary">
+      <BrandIcon logo="/parkhunt.png" height={80} width={80} />
       {users && users.data?.users.map((u: any) => <div key={u.uid}>user: {u.name}</div>)}
-      <div>
-        <MyButtonComponent />
-      </div>
+      <div></div>
     </div>
   )
 }

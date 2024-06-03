@@ -5,6 +5,8 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+
+    // Add this to share tailwind config from our library
     '../../packages/ui/**/*.{ts,tsx}',
   ],
   theme: {
@@ -15,6 +17,7 @@ const config: Config = {
       },
     },
   },
+  // Add this to share tailwind config from our library
   presets: [require('../../packages/ui/tailwind.config')],
   plugins: [],
 }

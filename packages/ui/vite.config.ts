@@ -6,6 +6,7 @@ import tailwindcss from 'tailwindcss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: { preserveSymlinks: true },
   build: {
     lib: {
       entry: resolve(__dirname, './lib/index.ts'),
