@@ -150,9 +150,6 @@ importers:
       '@parkhunt/network':
         specifier: workspace:^
         version: link:../../packages/network
-      '@parkhunt/ui':
-        specifier: workspace:^
-        version: link:../../packages/ui
       next:
         specifier: 14.2.3
         version: 14.2.3(@babel/core@7.24.6)(react-dom@18.2.0)(react@18.2.0)
