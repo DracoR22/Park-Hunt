@@ -21,7 +21,7 @@
     "@graphql-codegen/typed-document-node": "^5.0.7",
     "@graphql-codegen/typescript-operations": "^4.2.1",
     "@graphql-typed-document-node/core": "^3.2.0",
-    "@parkhunt/typescript-config": "workspace:^",
+    "@parkhunt/tsconfig": "workspace:^",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.12.13",
     "@types/react": "^18.2.61",

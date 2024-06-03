@@ -5,6 +5,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    '../../packages/ui/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
@@ -14,6 +15,7 @@ const config: Config = {
       },
     },
   },
+  presets: [require('../../packages/ui/tailwind.config')],
   plugins: [],
 }
 export default config

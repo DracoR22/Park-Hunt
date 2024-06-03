@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import '@parkhunt/ui/dist/style.css'
 import { ApolloProvider } from '@parkhunt/network'
 
 const inter = Inter({ subsets: ['latin'] })

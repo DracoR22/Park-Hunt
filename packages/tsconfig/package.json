@@ -1,5 +1,5 @@
 {
-  "name": "@parkhunt/typescript-config",
+  "name": "@parkhunt/tsconfig",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
