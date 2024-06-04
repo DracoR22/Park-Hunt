@@ -1,8 +1,8 @@
 import colors from 'tailwindcss/colors'
 
-const brandHue = 52
+const brandHue = 203
 
-// #ffdd00 for brandHue 52
+// #1DA1F2 for brandHue 203
 const primaryPallete = {
   DEFAULT: `hsl(${brandHue}, 100%, 50%)`,
   25: `hsl(${brandHue}, 100%, 98%)`,

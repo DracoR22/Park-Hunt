@@ -27,7 +27,6 @@ export const authOptions: NextAuthOptions = {
 
       // Authorize function to validate user credentials
       async authorize(credentials) {
-        // Implement credentails validation logic
         if (!credentials) {
           throw new Error('Email and password are required')
         }
@@ -35,20 +34,19 @@ export const authOptions: NextAuthOptions = {
         const { email, password } = credentials
 
         try {
-          // Login API request to our GraphQL server
+          console.log('Attempting to connect to GraphQL server...')
           const loginUser = await loginUserMutation({ email, password })
 
           if (!loginUser.data?.login.token || loginUser.error) {
             throw new Error('Authentication failed: Invalid credentials or user not found')
           }
 
-          // Extract the response
           const { uid, image, name } = loginUser.data.login.user
-
           return { id: uid, name, image, email }
-        } catch (error) {}
-
-        return null
+        } catch (error) {
+          console.log('Error during loginUserMutation:', error)
+          throw new Error('Authentication failed: Connection error')
+        }
       },
     }),
   ],
@@ -151,7 +149,7 @@ export const authOptions: NextAuthOptions = {
 
   // Configure custom pages
   pages: {
-    signIn: '/sign-in',
+    signIn: '/login',
   },
 }
 

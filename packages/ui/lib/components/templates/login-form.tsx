@@ -1,34 +1,27 @@
-import { useFormLogin } from '@parkhunt/forms'
 import { Form } from '../atoms/form'
 import { Label } from '../atoms/label'
 import { Input } from '../atoms/input'
 import { Button } from '../atoms/button'
 
+import { FormError } from '../atoms/form-error'
+
 export interface ILoginFormProps {
   className?: string
+  error?: string | undefined
+  onSubmit: () => void
+  register: any
 }
 
-export const LoginForm = ({ className }: ILoginFormProps) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useFormLogin()
-
-  console.log(errors)
-
+export const LoginForm = ({ className, error, onSubmit, register }: ILoginFormProps) => {
   return (
-    <Form
-      onSubmit={handleSubmit((data) => {
-        console.log(data)
-      })}
-    >
+    <Form onSubmit={onSubmit}>
       <Label className={className}>
-        <Input {...register('email')} />
+        <Input placeholder="youremail@example.com" {...register('email')} />
       </Label>
       <Label>
-        <Input {...register('password')} />
+        <Input type="password" placeholder="*******" {...register('password')} />
       </Label>
+      <FormError error={error} />
       <Button type="submit">Submit</Button>
     </Form>
   )

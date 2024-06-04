@@ -1,12 +1,14 @@
-import { IconExclamationCircle } from '@tabler/icons-react'
+import { IconAlertTriangle } from '@tabler/icons-react'
 
 export interface IFormErrorProps {}
 
 export const FormError = ({ error }: { error?: string | undefined }) => {
   if (error) {
     return (
-      <div className="flex items-center justify-start gap-1 mt-1 text-xs text-gray-900">
-        <IconExclamationCircle className="inline w-4 h-4 text-red-500" /> {error}
+      <div className="bg-red/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-red-500 border-red-500">
+        {/* @ts-ignore */}
+        <IconAlertTriangle className="h-4 w-4" />
+        <p>{error}</p>
       </div>
     )
   }

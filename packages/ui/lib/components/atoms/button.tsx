@@ -66,12 +66,13 @@ export const Button = ({
     <button
       type={type}
       disabled={disabled || loading}
-      className={`rounded-md relative font-medium ${sizeCls} ${fwCls} ${variantCls} ${disCls}  ${className} `}
+      className={`rounded-md text-white relative font-medium ${sizeCls} ${fwCls} ${variantCls} ${disCls}  ${className} `}
       {...props}
     >
       {loading ? (
         <>
           <div className="absolute inset-0 flex items-center justify-center">
+            {/* @ts-ignore */}
             <IconRotateClockwise2 className="w-5 h-5 animate-spin" />
           </div>
           <div className="opacity-10">{children}</div>
