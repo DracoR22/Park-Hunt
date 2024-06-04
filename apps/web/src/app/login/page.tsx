@@ -6,17 +6,22 @@ import { AuthLayout, FormError, LoginForm } from '@parkhunt/ui'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 const LoginPage = () => {
+  const [error, setError] = useState<string | undefined>('')
+
   const router = useRouter()
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useFormLogin()
 
   const onSubmit = handleSubmit(async (data) => {
+    setError('')
+
     const { email, password } = data
 
     const result = await signIn('credentials', { email, password, redirect: false })
@@ -26,29 +31,19 @@ const LoginPage = () => {
     }
 
     if (result?.error) {
-      alert('Invalid email or password')
+      setError(result.error || 'Invalid email or password')
     }
   })
 
-  const oNoSubmit = handleSubmit(async (data) => {
-    const res = await loginUserMutation({
-      email: data.email,
-      password: data.password,
-    })
-
-    console.log(res)
-  })
-
   return (
-    <div className="w-full flex items-center justify-center mt-10">
-      <div>
-        <AuthLayout title="Welcome back!" logo="/parkhunt.png">
-          <LoginForm
-            error={errors.email?.message || errors.password?.message}
-            onSubmit={onSubmit}
-            register={register}
-          />
-
+    <div>
+      <AuthLayout title="Welcome back!" logo="/parkhunt.png">
+        <LoginForm
+          error={errors.email?.message || errors.password?.message || error}
+          onSubmit={onSubmit}
+          register={register}
+          isSubmitting={isSubmitting}
+        >
           <div className="mt-4 text-sm">
             Don&apos;t have a Park Hunt account?
             <br />
@@ -56,17 +51,8 @@ const LoginPage = () => {
               Create one
             </Link>{' '}
           </div>
-        </AuthLayout>
-      </div>
-
-      {/* <div>
-        <form action="" onSubmit={oNoSubmit}>
-          <input type="text" {...register('email')} />
-          <input type="text" {...register('password')} />
-
-          <button>login</button>
-        </form>
-      </div> */}
+        </LoginForm>
+      </AuthLayout>
     </div>
   )
 }

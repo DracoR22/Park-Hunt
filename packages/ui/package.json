@@ -24,7 +24,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@parkhunt/common": "workspace:^",
     "@parkhunt/forms": "workspace:^",
+    "@parkhunt/network": "workspace:^",
     "@tabler/icons-react": "^3.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

@@ -200,6 +200,15 @@ importers:
         specifier: ^5
         version: 5.4.5
 
+  packages/common:
+    devDependencies:
+      '@parkhunt/tsconfig':
+        specifier: workspace:^
+        version: link:../tsconfig
+      typescript:
+        specifier: ^5.4.5
+        version: 5.4.5
+
   packages/forms:
     dependencies:
       '@hookform/resolvers':
@@ -278,9 +287,15 @@ importers:
 
   packages/ui:
     dependencies:
+      '@parkhunt/common':
+        specifier: workspace:^
+        version: link:../common
       '@parkhunt/forms':
         specifier: workspace:^
         version: link:../forms
+      '@parkhunt/network':
+        specifier: workspace:^
+        version: link:../network
       '@tabler/icons-react':
         specifier: ^3.5.0
         version: 3.5.0(react@18.2.0)

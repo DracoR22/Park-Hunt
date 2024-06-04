@@ -1,6 +1,15 @@
-import { LoginUserMutationProps, RegisterWithProviderMutationProps } from '../types'
+import {
+  LoginUserMutationProps,
+  RegisterWithCredentialsMutationProps,
+  RegisterWithProviderMutationProps,
+} from '../types'
 import { fetchGraphQL } from '../fetch'
-import { AuthProviderType, LoginDocument, RegisterWithProviderDocument } from '../gql/generated'
+import {
+  AuthProviderType,
+  LoginDocument,
+  RegisterWithCredentialsDocument,
+  RegisterWithProviderDocument,
+} from '../gql/generated'
 
 // LOGIN USER METHOD
 export const loginUserMutation = async ({ email, password }: LoginUserMutationProps) => {
@@ -27,6 +36,28 @@ export const registerWithProviderMutation = async ({ uid, image, name }: Registe
         type: AuthProviderType.Google,
         image,
         name: name || '',
+      },
+    },
+  })
+
+  return newUser
+}
+
+// REGISTER USER WITH CREDENTIALS
+export const registerWithCredentialsMutation = async ({
+  email,
+  password,
+  image,
+  name,
+}: RegisterWithCredentialsMutationProps) => {
+  const newUser = await fetchGraphQL({
+    document: RegisterWithCredentialsDocument,
+    variables: {
+      registerWithCredentialsInput: {
+        email,
+        name,
+        password,
+        image,
       },
     },
   })

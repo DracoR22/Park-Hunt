@@ -8,3 +8,10 @@ export type RegisterWithProviderMutationProps = {
   image?: string | null | undefined
   name?: string | null | undefined
 }
+
+export type RegisterWithCredentialsMutationProps = {
+  email: string
+  image?: string | null | undefined
+  name: string
+  password: string
+}

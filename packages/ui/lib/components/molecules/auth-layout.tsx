@@ -16,7 +16,7 @@ export const AuthLayout = ({ children, title, logo }: IAuthLayoutProps) => {
           <div className="w-full max-w-lg mx-auto">
             <div className="flex items-center gap-2 mb-2 text-2xl">
               <BrandIcon logo={logo} width={80} height={80} />
-              <div className="text-bold text-gray-500">{title}</div>
+              <div className="font-bold text-gray-500">{title}</div>
             </div>
             {children}
             <div className="mt-4 text-sm text-gray-300">
