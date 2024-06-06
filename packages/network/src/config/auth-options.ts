@@ -1,10 +1,10 @@
 import NextAuth, { NextAuthOptions, getServerSession } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { loginUserMutation, registerWithProviderMutation } from '../requests/mutations'
+import { loginUserMutation, registerWithProviderMutation } from '../fetch/mutations'
 import jwt from 'jsonwebtoken'
 import { JWT } from 'next-auth/jwt'
-import { getUserByAuthQuery } from '../requests/queries'
+import { getUserByAuthQuery } from '../fetch/queries'
 
 const MAX_AGE = 1 * 24 * 60 * 60
 

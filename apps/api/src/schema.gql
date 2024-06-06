@@ -1099,10 +1099,10 @@ type Mutation {
 }
 
 input RegisterWithCredentialsInput {
-  name: String!
+  image: String
+  name: String
   email: String!
   password: String!
-  image: String
 }
 
 input RegisterWithProviderInput {

@@ -24,6 +24,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.0.4",
     "@parkhunt/common": "workspace:^",
     "@parkhunt/forms": "workspace:^",
     "@parkhunt/network": "workspace:^",

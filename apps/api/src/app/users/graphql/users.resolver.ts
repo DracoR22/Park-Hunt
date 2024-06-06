@@ -42,6 +42,7 @@ export class UsersResolver {
     return this.usersService.findOne({ where: { uid: user.uid } })
   }
 
+  @AllowAuthenticated('admin')
   @Query(() => [User], { name: 'users' })
   findAll(@Args() args: FindManyUserArgs) {
     return this.usersService.findAll(args)

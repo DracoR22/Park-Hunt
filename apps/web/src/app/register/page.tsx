@@ -25,7 +25,6 @@ const RegisterPage = () => {
       email: data.email,
       name: data.name ?? '',
       password: data.password,
-      image: '/placeholder.png',
     })
 
     if (newUser.error) {

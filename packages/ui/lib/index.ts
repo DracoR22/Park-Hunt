@@ -9,5 +9,8 @@ export * from './components/atoms/label'
 
 export * from './components/molecules/auth-layout'
 
+export * from './components/organisms/sidebar'
+export * from './components/organisms/header'
+
 export * from './components/templates/login-form'
 export * from './components/templates/register-form'

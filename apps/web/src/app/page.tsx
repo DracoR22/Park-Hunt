@@ -2,27 +2,58 @@
 
 import { allUsersQuery } from '@parkhunt/network'
 import { useEffect, useState } from 'react'
-import { BrandIcon } from '@parkhunt/ui'
+import { BrandIcon, Button, Header, Sidebar } from '@parkhunt/ui'
+import { useSession } from 'next-auth/react'
+import { useQuery } from '@apollo/client'
+import { UsersDocument } from '@parkhunt/network'
+import Link from 'next/link'
+
+const MENUITEMS = [
+  { label: 'Search', href: '/search' },
+  { label: 'Bookings', href: '/bookings' },
+]
 
 const HomePage = () => {
   const [users, setUsers] = useState<any>(null)
+  const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-    const getUser = async () => {
-      const usersData = await allUsersQuery()
+  const { data: sessionData, status } = useSession()
+  const usersData = useQuery(UsersDocument)
 
-      setUsers(usersData)
-    }
+  // useEffect(() => {
+  //   const getUser = async () => {
 
-    getUser()
-  }, [])
+  //     setUsers(usersData)
+  //   }
+
+  //   getUser()
+  // }, [])
 
   return (
-    <div className="bg-primary">
-      <BrandIcon logo="/parkhunt.png" height={80} width={80} />
-      {users && users.data?.users.map((u: any) => <div key={u.uid}>user: {u.name}</div>)}
-      <div></div>
-    </div>
+    <>
+      <Header
+        image={sessionData?.user?.image}
+        menuItems={MENUITEMS}
+        name={sessionData?.user?.name}
+        uid={sessionData?.user?.uid}
+      >
+        <Link href={'/'} className="flex items-center font-bold text-xl text-gray-700">
+          <BrandIcon logo="/parkhunt.png" height={75} width={75} />
+          Park Hunt
+        </Link>
+      </Header>
+      <div className="bg-primary">
+        {sessionData?.user?.uid}
+        <BrandIcon logo="/parkhunt.png" height={80} width={80} />
+        {usersData && usersData.data?.users.map((u: any) => <div key={u.uid}>user: {u.name}</div>)}
+        <div className="p-12">
+          <Button onClick={() => setOpen(true)}>few</Button>
+          <Sidebar open={open} setOpen={setOpen}>
+            children
+          </Sidebar>
+        </div>
+      </div>
+    </>
   )
 }
 

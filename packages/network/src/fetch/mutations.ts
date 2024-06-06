@@ -3,7 +3,7 @@ import {
   RegisterWithCredentialsMutationProps,
   RegisterWithProviderMutationProps,
 } from '../types'
-import { fetchGraphQL } from '../fetch'
+import { fetchGraphQL } from '.'
 import {
   AuthProviderType,
   LoginDocument,

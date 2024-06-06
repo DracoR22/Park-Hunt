@@ -2,7 +2,10 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import '@parkhunt/ui/dist/style.css'
-import { ApolloProvider } from '@parkhunt/network'
+import { ApolloProvider, authOptions } from '@parkhunt/network'
+import { SessionProvider } from '@/components/session-provider'
+import { Header } from '@parkhunt/ui'
+import { useSession } from 'next-auth/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ApolloProvider>
-        <body className={inter.className}>{children}</body>
+        <SessionProvider>
+          <body className={inter.className}>{children}</body>
+        </SessionProvider>
       </ApolloProvider>
     </html>
   )

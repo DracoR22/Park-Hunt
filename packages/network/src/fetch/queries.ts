@@ -1,6 +1,5 @@
 'use client'
 
-import { useQuery } from '@apollo/client'
 import { GetAuthProviderDocument, UsersDocument } from '../gql/generated.js'
 import { fetchGraphQL } from '../fetch/index.js'
 

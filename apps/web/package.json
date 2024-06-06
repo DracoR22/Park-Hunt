@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.10.4",
     "@parkhunt/forms": "workspace:^",
     "@parkhunt/network": "workspace:^",
     "@parkhunt/ui": "workspace:^",
