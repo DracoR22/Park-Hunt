@@ -47,3 +47,40 @@ mutation RegisterWithProvider(
     uid
   }
 }
+
+mutation CreateGarage($createGarageInput: CreateGarageInput!) {
+  createGarage(createGarageInput: $createGarageInput) {
+    id
+  }
+}
+
+query SearchGarages(
+  $dateFilter: DateFilterInput!
+  $locationFilter: LocationFilterInput!
+  $slotsFilter: SlotWhereInput
+  $garageFilter: GarageFilter
+) {
+  searchGarages(
+    dateFilter: $dateFilter
+    locationFilter: $locationFilter
+    slotsFilter: $slotsFilter
+    garageFilter: $garageFilter
+  ) {
+    id
+    address {
+      lat
+      lng
+      address
+    }
+    images
+    displayName
+    availableSlots(dateFilter: $dateFilter, slotsFilter: $slotsFilter) {
+      type
+      pricePerHour
+      count
+    }
+    verification {
+      verified
+    }
+  }
+}

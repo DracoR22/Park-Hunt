@@ -7,11 +7,7 @@ import { useSession } from 'next-auth/react'
 import { useQuery } from '@apollo/client'
 import { UsersDocument } from '@parkhunt/network'
 import Link from 'next/link'
-
-const MENUITEMS = [
-  { label: 'Search', href: '/search' },
-  { label: 'Bookings', href: '/bookings' },
-]
+import { MENUITEMS } from '@/lib/utils'
 
 const HomePage = () => {
   const [users, setUsers] = useState<any>(null)

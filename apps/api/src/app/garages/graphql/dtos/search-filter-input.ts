@@ -15,5 +15,6 @@ export class GarageFilter extends PickType(FindManyGarageArgs, ['where', 'orderB
 
 @ObjectType()
 export class MinimalSlotGroupBy extends PickType(Slot, ['type', 'pricePerHour']) {
+  @Field()
   count: number
 }

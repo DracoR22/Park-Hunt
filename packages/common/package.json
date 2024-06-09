@@ -16,7 +16,13 @@
   "license": "ISC",
   "devDependencies": {
     "@parkhunt/tsconfig": "workspace:^",
+    "@types/node": "^20.14.2",
+    "@types/pluralize": "^0.0.33",
     "@types/react": "^18.3.3",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0",
+    "pluralize": "^8.0.0"
   }
 }

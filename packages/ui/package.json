@@ -24,16 +24,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@babel/runtime": "^7.24.7",
     "@headlessui/react": "^2.0.4",
     "@parkhunt/common": "workspace:^",
-    "@parkhunt/forms": "workspace:^",
-    "@parkhunt/network": "workspace:^",
+    "@popperjs/core": "^2.11.8",
     "@tabler/icons-react": "^3.5.0",
+    "mapbox-gl": "^3.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-map-gl": "^7.1.7"
   },
   "devDependencies": {
-    "@types/node": "^20.14.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",

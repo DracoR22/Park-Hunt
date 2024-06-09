@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <ApolloProvider>
         <SessionProvider>
-          <body className={inter.className}>{children}</body>
+          <body className={`${inter.className} h-full`}>{children}</body>
         </SessionProvider>
       </ApolloProvider>
     </html>
