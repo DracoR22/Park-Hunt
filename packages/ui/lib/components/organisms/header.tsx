@@ -12,9 +12,10 @@ export type IHeaderProps = {
   uid?: string | undefined | null
   name?: string | undefined | null
   image?: string | undefined | null
+  signOut: () => void
 } & BaseComponent
 
-export const Header = ({ menuItems, children, uid, image, name }: IHeaderProps) => {
+export const Header = ({ menuItems, children, uid, image, name, signOut }: IHeaderProps) => {
   return (
     <header>
       <nav className="fixed z-50 top-0 w-full shadow-md bg-white/50 backdrop-blur-md">
@@ -27,7 +28,7 @@ export const Header = ({ menuItems, children, uid, image, name }: IHeaderProps) 
                   <Menus menuItems={menuItems} />
                 </div>
 
-                <NavSidebar uid={uid} image={image} name={name} menuItems={menuItems} />
+                <NavSidebar signOut={signOut} uid={uid} image={image} name={name} menuItems={menuItems} />
               </div>
             ) : (
               <>

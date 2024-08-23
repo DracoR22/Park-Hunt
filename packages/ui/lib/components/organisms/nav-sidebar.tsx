@@ -4,15 +4,17 @@ import { Sidebar } from './sidebar'
 import { useState } from 'react'
 import { UserInfo } from '../molecules/user-info'
 import { Menus } from './menus'
+import { LogoutButton } from '../molecules/logout-button'
 
 export interface INavSidebarProps {
   menuItems: MenuItem[]
   image?: string | undefined | null
   name?: string | undefined | null
   uid?: string | undefined | null
+  signOut: () => void
 }
 
-export const NavSidebar = ({ menuItems, image, name, uid }: INavSidebarProps) => {
+export const NavSidebar = ({ menuItems, image, name, uid, signOut }: INavSidebarProps) => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -25,7 +27,9 @@ export const NavSidebar = ({ menuItems, image, name, uid }: INavSidebarProps) =>
           <UserInfo className="mb-4" image={image} name={name} uid={uid} />
           <Menus menuItems={menuItems} />
         </div>
-        <div className=" mt-auto">{/* <LogoutButton /> */}</div>
+        <div className=" mt-auto">
+          <LogoutButton signOut={signOut} />
+        </div>
       </Sidebar>
     </>
   )

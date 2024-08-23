@@ -64,16 +64,16 @@ export const formDefaultValuesSearchGarages: DefaultValues<FormTypeSearchGarage>
   types: AllSlotTypes.sort(),
 }
 
-// export const FormProviderSearchGarage = ({ children }: { children: ReactNode }) => {
-//   const { startTime, endTime } = getCurrentTimeAndOneHourLater()
-//   const methods = useForm<FormTypeSearchGarage>({
-//     resolver: zodResolver(formSchemaSearchGarage),
-//     defaultValues: {
-//       ...formDefaultValuesSearchGarages,
-//       startTime,
-//       endTime,
-//     },
-//   })
+export const FormProviderSearchGarage = ({ children }: { children: ReactNode }) => {
+  const { startTime, endTime } = getCurrentTimeAndOneHourLater()
+  const methods = useForm<FormTypeSearchGarage>({
+    resolver: zodResolver(formSchemaSearchGarage),
+    defaultValues: {
+      ...formDefaultValuesSearchGarages,
+      startTime,
+      endTime,
+    },
+  })
 
-//   return <FormProvider {...methods}>{children}</FormProvider>
-// }
+  return <FormProvider {...methods}>{children}</FormProvider>
+}

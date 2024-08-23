@@ -7,3 +7,5 @@ export * from './date/date'
 export * from './constants/constants'
 
 export * from './hooks/location'
+export * from './hooks/keys'
+export * from './hooks/async'

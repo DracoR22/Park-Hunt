@@ -66,7 +66,7 @@ export const Button = ({
     <button
       type={type}
       disabled={disabled || loading}
-      className={`rounded-md text-white relative font-medium ${sizeCls} ${fwCls} ${variantCls} ${disCls}  ${className} `}
+      className={`rounded-md relative font-medium ${sizeCls} ${fwCls} ${variantCls} ${disCls}  ${className} `}
       {...props}
     >
       {loading ? (

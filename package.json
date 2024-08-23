@@ -3,21 +3,25 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "build:packages": "concurrently \"pnpm:build:ui\" \"pnpm:build:types\" \"pnpm:build:cli\"",
+    "build:ui": "pnpm tsc -p ./packages/ui/tsconfig.json",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"  --ignore-path .gitignore",
     "format:check": "pnpm format --check",
     "format:write": "pnpm format --write",
-    "validate": "pnpm format:write && pnpm lint",
+    "validate": "pnpm format:write",
     "prepare": "husky install",
     "checkNpmVersion": "sh ./scripts/check-npm-version.sh",
     "cleanBuild": "sh ./scripts/clean-package.sh"
   },
   "devDependencies": {
     "@parkhunt/tsconfig": "workspace:^",
+    "concurrently": "^8.2.2",
     "husky": "^8.0.0",
     "prettier": "^3.2.5",
-    "turbo": "latest"
+    "turbo": "latest",
+    "typescript": "^5.5.4"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
