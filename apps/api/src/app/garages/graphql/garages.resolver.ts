@@ -82,29 +82,29 @@ export class GaragesResolver {
       ...garageFilters,
       where: {
         ...where,
-        Address: {
-          lat: { lte: ne_lat, gte: sw_lat },
-          lng: { lte: ne_lng, gte: sw_lng },
-        },
-        Slots: {
-          some: {
-            ...slotsFilter,
-            Bookings: {
-              none: {
-                OR: [
-                  {
-                    startTime: { lt: endDate },
-                    endTime: { gt: startDate },
-                  },
-                  {
-                    startTime: { gt: startDate },
-                    endTime: { lt: endDate },
-                  },
-                ],
-              },
-            },
-          },
-        },
+        // Address: {
+        //   lat: ne_lat,
+        //   lng: sw_lng,
+        // },
+        // Slots: {
+        //   some: {
+        //     ...slotsFilter,
+        //     Bookings: {
+        //       none: {
+        //         OR: [
+        //           {
+        //             startTime: { lt: endDate },
+        //             endTime: { gt: startDate },
+        //           },
+        //           {
+        //             startTime: { gt: startDate },
+        //             endTime: { lt: endDate },
+        //           },
+        //         ],
+        //       },
+        //     },
+        //   },
+        // },
       },
     })
   }

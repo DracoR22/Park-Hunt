@@ -3,9 +3,9 @@ import { SearchGaragesDocument } from '@parkhunt/network'
 import { useEffect } from 'react'
 import GarageMarker from './garage-marker'
 import { useFormContext } from 'react-hook-form'
-import { useConvertSearchFormToVariables } from '@parkhunt/forms'
 import { Panel } from './map/panel'
 import { IconInfoCircle, IconLoader } from '@tabler/icons-react'
+import { useConvertSearchFormToVariables } from '@/lib/garages-schema'
 
 const ShowGarages = () => {
   const { variables, debouncing } = useConvertSearchFormToVariables()

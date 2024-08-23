@@ -5,7 +5,7 @@ import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { SearchPage } from '@/components/search'
 import { MENUITEMS } from '@/lib/utils'
-import { FormProviderSearchGarage } from '@/lib/schema'
+import { FormProviderSearchGarage } from '@/lib/garages-schema'
 
 const Search = () => {
   const { data: sessionData, status } = useSession()
